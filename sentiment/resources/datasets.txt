@@ -1,0 +1,3 @@
+1. https://www.kaggle.com/datasets/subhajeetdas/hate-comment (Balanced)
+2. https://www.kaggle.com/datasets/atifaliak/youtube-comments-dataset (Positive)
+3. https://www.kaggle.com/datasets/abdullah0a/social-media-sentiment-analysis-dataset (Balanced)
