@@ -1,5 +1,7 @@
 import pandas as pd
-
+import re
+import emoji
+from contractions import fix
 
 ## Filtering Dataset1 - hate.csv
 # df = pd.read_csv("hate.csv")
@@ -37,19 +39,49 @@ import pandas as pd
 
 
 
+
+
 # # Shuffeling rows
 # df = pd.read_csv("finalDataset.csv")
 # df = df.sample(frac=1).reset_index(drop=True)
 # df.to_csv("finalDataset.csv", index=False)
 
+# # Text Cleaning
+# df = pd.read_csv("finalDataset.csv")
+# commentsColumn = "comment"
+# emoji_dict = {
+#     "😍": "love",
+#     "👍": "thumbs_up",
+#     "😢": "sad",
+#     "😂": "laugh",
+#     "🔥": "fire",
+#     "🤬": "angry"
+# }
+# def clean_text(text):
+#     if not isinstance(text, str):
+#         return text
+#     text = fix(text)
+#     text = text.lower()
+#     text = re.sub(r"http\S+|www\S+", "<URL>", text)
+#     text = re.sub(r"@\w+", "<MENTION>", text)
+#     text = re.sub(r"#\w+", "<HASHTAG>", text)
+#     text = "".join(emoji_dict.get(char, char) for char in text)
+#     text = re.sub(r"(.)\1{2,}", r"\1\1", text)
+#     text = re.sub(r"([!?.,])\1+", r"\1", text)
+#     text = re.sub(r"\s+", " ", text).strip()
+#     return text
+# df[commentsColumn] = df[commentsColumn].apply(clean_text)
+# df.to_csv("finalDataset.csv", index=False)
+# print("Text cleaning complete!")
 
 
 
-## Splitting the Dataset
+
+# # Splitting the Dataset
 # df = pd.read_csv("finalDataset.csv")
 # df = df.sample(frac=1, random_state=42).reset_index(drop=True)
-# trainingDatasetSize = int(0.7 * len(df))
-# testingDatasetSize = int(0.15 * len(df))
+# trainingDatasetSize = int(0.8 * len(df))
+# testingDatasetSize = int(0.1 * len(df))
 # valDatasetSize = len(df) - trainingDatasetSize - testingDatasetSize
 # train_df = df.iloc[:trainingDatasetSize]
 # test_df = df.iloc[trainingDatasetSize:trainingDatasetSize + testingDatasetSize]
@@ -57,7 +89,8 @@ import pandas as pd
 # train_df.to_csv("datasets/training.csv", index=False)
 # test_df.to_csv("datasets/testing.csv", index=False)
 # val_df.to_csv("datasets/validating.csv", index=False)
-# print("✅ Split complete:")
+# print("Split complete:")
 # print(f"Training: {len(train_df)} rows")
 # print(f"Testing:  {len(test_df)} rows")
 # print(f"Validation: {len(val_df)} rows")
+
