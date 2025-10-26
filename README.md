@@ -15,7 +15,7 @@ Python Packages:
 - joblib: Save model and vectorizer (install via pip)
 - re: Text cleaning (preinstalled)
 
-TF-IDF Vectorizer Tweaks:
+TF-IDF Vectorizer Tweaks:  
 Expanded the feature space with important context words and phrases, removed noise, and improved the descriptiveness of inputs for the model.
 - max_features = 15000 – Captures a wide vocabulary and subtle sentiment cues
 - ngram_range = (1, 3) – Includes unigrams, bigrams, and trigrams for better context
@@ -24,7 +24,7 @@ Expanded the feature space with important context words and phrases, removed noi
 - max_df = 0.95 – Ignores overly frequent words that add little value
 - sublinear_tf = True – Reduces the weight of very frequent terms for balanced importance
 
-Logistic Regression Tweaks:
+Logistic Regression Tweaks:  
 This setup allowed the model to learn nuanced patterns, avoid underfitting, and correctly identify all classes—including minority ones—resulting in better overall accuracy.
 - max_iter = 15000: Ensures complete convergence with high-dimensional data
 - class_weight = 'balanced': Handles class imbalance in sentiment data
