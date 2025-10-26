@@ -1,0 +1,6 @@
+env/
+resources/datasets
+resources/raw
+resources/datasets.txt
+sentimentAnalyzer.joblib
+vectorizer.joblib
